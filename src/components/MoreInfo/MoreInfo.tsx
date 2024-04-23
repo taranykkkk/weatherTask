@@ -21,7 +21,7 @@ function MoreInfo() {
     navigate('/');
   };
   const handleUpdateCard = () => {
-    const city = cityData.name;
+    const city: any = cityData.name;
     dispatch(getDataWeather(city));
   };
 

@@ -5,8 +5,21 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useAuth } from '../../hooks/use-auth';
 import { Link } from 'react-router-dom';
+import { FC } from 'react';
 
-function UserModal({ isOpen, handleClick, handleClose, handleLogout }) {
+interface UserModalProps {
+  isOpen: boolean | null | any;
+  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleClose: () => void;
+  handleLogout: () => void;
+}
+
+const UserModal: FC<UserModalProps> = ({
+  isOpen,
+  handleClick,
+  handleClose,
+  handleLogout,
+}) => {
   const { email } = useAuth();
   return (
     <div>
@@ -47,6 +60,6 @@ function UserModal({ isOpen, handleClick, handleClose, handleLogout }) {
       </Menu>
     </div>
   );
-}
+};
 
 export default UserModal;

@@ -22,8 +22,8 @@ function Header() {
   const dispatch = useAppDispatch();
   const { isAuth } = useAuth();
 
-  const handleClick = (event) => {
-    setIsOpen(event.currentTarget);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setIsOpen(event.currentTarget as unknown as null);
   };
 
   const handleClose = () => {

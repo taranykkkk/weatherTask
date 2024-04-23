@@ -4,7 +4,7 @@ import CityCard from '../../components/CityCard/CityCard';
 import { useAppSelector } from '../../hooks/redux-hooks';
 import { useAuth } from '../../hooks/use-auth';
 import { db } from '../../../firebase.config';
-import { setDoc, doc } from 'firebase/firestore';
+import { setDoc, doc, collection } from 'firebase/firestore';
 import { useEffect } from 'react';
 
 type CityValue = {
@@ -30,7 +30,8 @@ function Сities() {
   useEffect(() => {
     const fcFirebase = async () => {
       try {
-        const userDocRef = doc(db, 'users', id);
+        const collectionRef = collection(db, 'user');
+        const userDocRef = doc(collectionRef, id?.toString());
         await setDoc(userDocRef, { test: citiesData }, { merge: true });
       } catch (error: any) {
         console.log(error.message);

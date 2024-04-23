@@ -23,7 +23,7 @@ function Home() {
   auth.onAuthStateChanged(async (user) => {
     if (user) {
       dispatch(
-        setUser({ email: user.email, id: user.uid, token: user.accessToken }),
+        setUser({ email: user.email, id: user.uid, token: user.getIdToken() }),
       );
       const userDocRef = doc(db, 'users', user.uid);
       try {

@@ -1,6 +1,19 @@
 import TextField from '@mui/material/TextField';
+import { Dispatch, FC, SetStateAction } from 'react';
 
-function SearchBar({ inputVal, setInputVal, label, width }) {
+interface SearchBarProps {
+  inputVal: string;
+  label: string;
+  width: string;
+  setInputVal: Dispatch<SetStateAction<string>>;
+}
+
+const SearchBar: FC<SearchBarProps> = ({
+  inputVal,
+  setInputVal,
+  label,
+  width,
+}) => {
   return (
     <TextField
       value={inputVal}
@@ -36,6 +49,6 @@ function SearchBar({ inputVal, setInputVal, label, width }) {
       }}
     />
   );
-}
+};
 
 export default SearchBar;

@@ -1,6 +1,14 @@
 import TextField from '@mui/material/TextField';
+import { FC } from 'react';
 
-function FormInput({ label, type, value, handleInput }) {
+interface FormInputProps {
+  label: string;
+  type: string;
+  value: string;
+  handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const FormInput: FC<FormInputProps> = ({ label, type, value, handleInput }) => {
   return (
     <TextField
       value={value}
@@ -39,6 +47,6 @@ function FormInput({ label, type, value, handleInput }) {
       }}
     />
   );
-}
+};
 
 export default FormInput;

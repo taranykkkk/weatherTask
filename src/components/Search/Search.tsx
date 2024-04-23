@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+import { useAppDispatch } from '../../hooks/redux-hooks';
 import { getDataWeather } from '../../redux/slices/weatherSlice';
 import { useState } from 'react';
 

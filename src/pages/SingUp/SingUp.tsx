@@ -9,7 +9,7 @@ function SingUp() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleRegister = (email, password) => {
+  const handleRegister = (email: string, password: string) => {
     const auth = getAuth();
 
     createUserWithEmailAndPassword(auth, email, password)
@@ -18,7 +18,7 @@ function SingUp() {
           setUser({
             email: user.email,
             id: user.uid,
-            token: user.accessToken,
+            token: user.getIdToken(),
           }),
         );
         navigate('/');

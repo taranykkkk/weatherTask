@@ -11,7 +11,7 @@ function Login() {
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState<string>('');
 
-  const handleLogin = (email, password) => {
+  const handleLogin = (email: string, password: string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -19,7 +19,7 @@ function Login() {
           setUser({
             email: user.email,
             id: user.uid,
-            token: user.accessToken,
+            token: user.getIdToken(),
           }),
         );
         navigate('/');

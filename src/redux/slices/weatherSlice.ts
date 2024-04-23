@@ -16,7 +16,7 @@ const API_KEY = '269b4f702dc62e7c854d6ded554a6812';
 
 export const getDataWeather = createAsyncThunk(
   'weather/getDataWeather',
-  async (city, { rejectWithValue }) => {
+  async (city: any, { rejectWithValue }) => {
     try {
       const search_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lat={lat}&lon={lon}&exclude={part}&appid=${API_KEY}`;
       const response = await fetch(search_URL);
